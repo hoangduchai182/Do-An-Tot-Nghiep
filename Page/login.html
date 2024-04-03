@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="head"></head>
+  <body>
+    <header class="bg-header sticky" id="header"></header>
+    <section class="text-light" style="height: 100vh">
+      <nav class="d-flex">
+        <section class="text-center w-100">
+          <style>
+            .cascading-right {
+              margin-right: -50px;
+            }
+
+            @media (max-width: 991.98px) {
+              .cascading-right {
+                margin-right: 0;
+              }
+            }
+          </style>
+
+          <!-- Jumbotron -->
+          <div class="container py-4">
+            <div class="d-flex justify-content-center">
+              <div class="w-30 mb-5 mb-lg-0">
+                <div
+                  class="card cascading-right"
+                  style="background: rgba(100, 100, 100, 0.7)"
+                >
+                  <div class="card-body p-5 shadow-5 text-light text-center">
+                    <h2 class="fw-bold mb-5">Sign up now</h2>
+
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example3"
+                        >User name</label
+                      >
+                      <input
+                        type="email"
+                        id="input-username"
+                        class="form-control"
+                      />
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form3Example4"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        id="input-password"
+                        class="form-control"
+                      />
+                    </div>
+
+                    <!-- Submit button -->
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block mb-4"
+                      id="btn-submit"
+                    >
+                      Sign up
+                    </button>
+
+                    <div class="mb-3">
+                      <p class="mb-0">Bạn chưa có tài khoản?</p>
+                      <a class="" href="../Page/register.html">Đăng kí</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </nav>
+    </section>
+    <footer class="Footer" id="footer"></footer>
+    <script>
+      function includeHTML(file, containerId) {
+        fetch(file)
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById(containerId).innerHTML = html;
+          });
+      }
+      includeHTML('../HTML/head.html', 'head');
+      includeHTML('../HTML/header.html', 'header');
+      includeHTML('../HTML/footer.html', 'footer');
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../Scripts/function.js"></script>
+    <script src="../Scripts/login.js"></script>
+    <script src="../models/User.js"></script>
+    <script src="../Scripts/storage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="head">
+    <title>Cafe Game</title>
+  </head>
+  <body>
+    <header class="bg-header sticky" id="header">
+      <nav class="navbar navbar-expand-lg fw-bold fs-4 p-0">
+        <div class="container-fluid">
+          <div
+            class="w-100 d-flex justify-content-between align-items-center navbar_container"
+          >
+            <div class="d-flex align-items-center">
+              <img src="../images/logo.png" alt="" class="logo-nav" />
+              <div class="logo-title">
+                <p
+                  class="text-light ms-2 mb-0"
+                  style="font-family: 'Denk One', sans-serif"
+                >
+                  Cafe Game
+                </p>
+                <p
+                  class="d-flex justify-content-center text-light mb-0 fs-5"
+                  style="font-family: 'Devonshire', cursive"
+                >
+                  Plays
+                </p>
+              </div>
+            </div>
+            <div class="w-50 nav_div_link">
+              <div class="d-flex justify-content-end me-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100034215141765"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  >Fanpage</a
+                >
+                <a
+                  href="../Page/login.html"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  id="account"
+                  >Account</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="d-flex">
+      <div id="content" class="nav_left w-25 text-light p-4">
+        <div class="container sticky-10" id="main">
+          <div class="d-flex justify-content-center">
+            <a
+              class="text-decoration-none list_category bg-secondary rounded-3 d-flex align-items-center p-2"
+              href="../HTML/index.html"
+            >
+              <span class="material-symbols-outlined me-2"> low_priority </span>
+              <p class="mb-0 fw-bold">Quay về trang chủ</p></a
+            >
+          </div>
+          <div class="row justify-content-center align-items-center mt-4">
+            <div class="d-flex flex-column align-items-center">
+              <form class="">
+                <div class="form-group mb-3">
+                  <label for="input-page-size" class="col-form-label"
+                    >Số bài viết</label
+                  >
+                  <div class="">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="input-page-size"
+                      placeholder="Input News per page"
+                    />
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <label for="input-category" class="col-form-label"
+                    >Chủ đề</label
+                  >
+                  <div class="">
+                    <select class="form-control" id="input-category">
+                      <option>General</option>
+                      <option>Technology</option>
+                      <option>Science</option>
+                      <option>Business</option>
+                      <option>Entertainment</option>
+                      <option>Health</option>
+                      <option>Sports</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button type="button" class="btn btn-primary" id="btn-submit">
+                    Save Settings
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ps-5 pe-5 pt-3 w-75" id="news-container"></div>
+    </section>
+
+    <footer class="Footer" id="footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../models/User.js"></script>
+    <script src="../Scripts/function.js"></script>
+    <script src="../Scripts/storage.js"></script>
+    <script src="../Scripts/link-file.js"></script>
+    <script src="../Scripts/news-2.js"></script>
+    <script src="../Scripts/main-page.js"></script>
+  </body>
+</html>

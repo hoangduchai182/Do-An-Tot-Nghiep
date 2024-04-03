@@ -1,0 +1,17 @@
+#canvas1 {
+  border: 5px solid black;
+}
+#beetlemorph,
+#player,
+#player_jets,
+#rhinomorph,
+#background-1,
+#background-2,
+#background-3,
+#background-4,
+#background-5,
+#background-6,
+#background-7,
+#boss {
+  display: none;
+}

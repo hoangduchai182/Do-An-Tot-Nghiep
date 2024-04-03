@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../images/logo.png" type="image/png" />
+    <title>Cafe Game - Egg Monster</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/size.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Denk+One&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Nabla&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../5-Alien-shooter/style.css" />
+  </head>
+  <body>
+    <header class="bg-header sticky">
+      <nav class="navbar navbar-expand-lg fw-bold fs-4 p-0">
+        <div class="container-fluid">
+          <div
+            class="w-100 d-flex justify-content-between align-items-center navbar_container"
+          >
+            <div class="d-flex align-items-center">
+              <img src="../images/logo.png" alt="" class="logo-nav" />
+              <div class="logo-title">
+                <p
+                  class="text-light ms-2 mb-0"
+                  style="font-family: 'Denk One', sans-serif"
+                >
+                  Cafe Game
+                </p>
+                <p
+                  class="d-flex justify-content-center text-light mb-0 fs-5"
+                  style="font-family: 'Devonshire', cursive"
+                >
+                  Plays
+                </p>
+              </div>
+            </div>
+            <div class="w-50 nav_div_link">
+              <div class="d-flex justify-content-end me-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100034215141765"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  >Fanpage</a
+                >
+                <a
+                  href="../Page/login.html"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  id="account"
+                  >Account</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="text-light">
+      <nav class="d-flex">
+        <div
+          class="d-flex flex-column nav_left w-20 p-3"
+          id="content-20-1"
+        ></div>
+
+        <div class="w-60" id="content-60">
+          <div class="d-flex justify-content-center">
+            <canvas id="canvas1"></canvas>
+            <img src="./images/background-1.jpg" alt="" id="background-1" />
+            <img src="./images/background-2.jpg" alt="" id="background-2" />
+            <img src="./images/background-3.jpg" alt="" id="background-3" />
+            <img src="./images/background-4.jpg" alt="" id="background-4" />
+            <img src="./images/background-5.jpg" alt="" id="background-5" />
+            <img src="./images/background-6.jpg" alt="" id="background-6" />
+            <img src="./images/background-7.jpg" alt="" id="background-7" />
+            <img src="./images/boss.png" id="boss" alt="" />
+            <img src="./images/beetlemorph.png" id="beetlemorph" alt="" />
+            <img src="./images/rhinomorph.png" alt="" id="rhinomorph" />
+            <img src="./images/player.png" id="player" alt="" />
+            <img src="./images/player_jets.png" alt="" id="player_jets" />
+            <script type="module" src="script.js"></script>
+          </div>
+
+          <div class="introduction-game rounded-3 m-5">
+            <h2 class="text-center bg-light text-dark p-2 rounded-3">
+              Giới thiệu game
+            </h2>
+            <div class="d-flex ms-5 me-5">
+              <img
+                class="mt-5"
+                src="../images/logo-Alien-Shooter.png"
+                alt=""
+                width="250"
+                height="160"
+              />
+              <div class="ms-3">
+                <h4>Alien Shooter</h4>
+                <p class="mb-0">
+                  Năm 2075, con người đã đạt được sự phát triển vượt bậc trong
+                  việc khám phá và khai thác vũ trụ. Tuy nhiên, sự phát triển
+                  này không chỉ thu hút sự chú ý của các nền văn minh vũ trụ, mà
+                  còn làm cho Trái Đất trở thành một mục tiêu tấn công của những
+                  sinh vật ngoài hành tinh đầy thù địch. Trước nguy cơ đe dọa từ
+                  bên ngoài, Liên minh Vũ trụ thành lập lực lượng Thiên Hà Phòng
+                  Vệ - một đội quân được trang bị những tàu vũ trụ hỏa lực và
+                  công nghệ tiên tiến nhất, với nhiệm vụ bảo vệ Trái Đất khỏi sự
+                  xâm lăng của các sinh vật ngoài hành tinh.
+                </p>
+              </div>
+            </div>
+            <div class="ms-5 me-5 pb-2">
+              <p>
+                Người chơi sẽ hóa thân vào một phi công dũng cảm, điều khiển một
+                trong những tàu vũ trụ cao cấp nhất của Thiên Hà Phòng Vệ. Với
+                trang bị vũ khí đa dạng và tiên tiến, họ sẽ tham gia vào các
+                chiến dịch nguy hiểm trên khắp vũ trụ, đối mặt với những sinh
+                vật ngoài hành tinh hung dữ và quyết liệt. Trên hành trình chống
+                lại sự xâm lăng, người chơi sẽ phải đối mặt với những tình huống
+                căng thẳng và khó khăn, từ cuộc tấn công của đội quân quái vật
+                đến việc khám phá các hành tinh xa xôi đầy nguy hiểm.
+              </p>
+              <p>
+                Trong cuộc chiến chống lại sự xâm lăng từ những sinh vật ngoài
+                hành tinh, người chơi sẽ không chỉ đối mặt với những kẻ thù đầy
+                nguy hiểm, mà còn phải tìm cách giải mã những bí ẩn của vũ trụ.
+                Trên hành trình của mình, họ sẽ phát hiện ra rằng sự tấn công
+                của sinh vật ngoài hành tinh không chỉ là một cuộc xâm lăng tình
+                cờ, mà còn là một phần của một kế hoạch lớn hơn, một âm mưu đen
+                tối được chủ trương bởi một thế lực đáng sợ trong vũ trụ. Với sự
+                giúp đỡ của các nhà khoa học, các nhà chiến lược và những người
+                đồng đội tin cậy, người chơi sẽ tiến vào trận địa cuối cùng, một
+                cuộc chiến quyết định giữa sự tự do và sự áp đặt.
+              </p>
+            </div>
+          </div>
+
+          <div class="comment-game">
+            <h3 class="text-center bg-light text-dark rounded-3 p-1">
+              Bình luận
+            </h3>
+            <div class="ms-5 me-5 scroll">
+              <div id="comment-game"></div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <h4
+                id="icon-user-comment"
+                class="icon-user-comment bg-success d-flex justify-content-center align-items-center p-4 mb-0 me-1"
+              >
+                H
+              </h4>
+              <textarea
+                class="rounded-1"
+                placeholder="Viết bình luận"
+                name=""
+                id="input-comment"
+                cols="50"
+                rows="1"
+              ></textarea>
+              <button id="btn-submit-comment" class="ms-2 btn btn-primary">
+                Gửi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-game w-20 rounded-1" id="content-20-2">
+          <div id="content" class="m-1">
+            <h2 class="mb-4 text-light text-center">News</h2>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <button class="page-link" href="#" id="btn-prev">
+                  Previous
+                </button>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" id="page-num">1</a>
+              </li>
+              <li class="page-item">
+                <button class="page-link" id="btn-next">Next</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="news-container"></div>
+        </div>
+      </nav>
+    </section>
+    <footer class="Footer" id="footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../Scripts/link-file-none.js"></script>
+    <script src="../Scripts/function.js"></script>
+    <script src="../models/User.js"></script>
+    <script src="../Scripts/storage.js"></script>
+    <script src="../Scripts/news.js"></script>
+    <script src="../5-Alien-shooter/game-5.js"></script>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../images/logo.png" type="image/png" />
+    <title>Cafe Game - Egg Monster</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/size.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Denk+One&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Nabla&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../4-Seahorses-gun/style.css" />
+  </head>
+  <body>
+    <header class="bg-header sticky">
+      <nav class="navbar navbar-expand-lg fw-bold fs-4 p-0">
+        <div class="container-fluid">
+          <div
+            class="w-100 d-flex justify-content-between align-items-center navbar_container"
+          >
+            <div class="d-flex align-items-center">
+              <img src="../images/logo.png" alt="" class="logo-nav" />
+              <div class="logo-title">
+                <p
+                  class="text-light ms-2 mb-0"
+                  style="font-family: 'Denk One', sans-serif"
+                >
+                  Cafe Game
+                </p>
+                <p
+                  class="d-flex justify-content-center text-light mb-0 fs-5"
+                  style="font-family: 'Devonshire', cursive"
+                >
+                  Plays
+                </p>
+              </div>
+            </div>
+            <div class="w-50 nav_div_link">
+              <div class="d-flex justify-content-end me-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100034215141765"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  >Fanpage</a
+                >
+                <a
+                  href="../Page/login.html"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  id="account"
+                  >Account</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="text-light">
+      <nav class="d-flex">
+        <div
+          class="d-flex flex-column nav_left w-20 p-3"
+          id="content-20-1"
+        ></div>
+
+        <div class="w-60" id="content-60">
+          <div class="d-flex justify-content-center">
+            <canvas id="canvas1"></canvas>
+            <!-- characters -->
+            <img id="player" src="assets/player.png" />
+            <img id="angler1" src="assets/angler1.png" />
+            <img id="angler2" src="assets/angler2.png" />
+            <img id="lucky" src="assets/lucky.png" />
+            <img id="hivewhale" src="assets/hivewhale.png" />
+            <img id="drone" src="assets/drone.png" />
+            <img id="bulbwhale" src="assets/bulbwhale.png" />
+            <img id="moonfish" src="assets/moonfish.png" />
+            <img id="stalker" src="assets/stalker.png" />
+            <img id="razorfin" src="assets/razorfin.png" />
+            <!-- props -->
+            <img id="projectile" src="assets/projectile.png" />
+            <img id="gears" src="assets/gears.png" />
+            <img id="smokeExplosion" src="assets/smokeExplosion.png" />
+            <img id="fireExplosion" src="assets/fireExplosion.png" />
+            <img id="shield" src="assets/shield.png" />
+            <img id="fireball" src="assets/fireball.png" />
+            <!-- environment -->
+            <img id="layer1" src="assets/layer1.png" />
+            <img id="layer2" src="assets/layer2.png" />
+            <img id="layer3" src="assets/layer3.png" />
+            <img id="layer4" src="assets/layer4.png" />
+            <!-- sounds -->
+            <audio id="powerup" src="assets/powerup.wav"></audio>
+            <audio id="powerdown" src="assets/powerdown.wav"></audio>
+            <audio id="explosion" src="assets/explosion.wav"></audio>
+            <audio id="shot" src="assets/shot.wav"></audio>
+            <audio id="hit" src="assets/hit.wav"></audio>
+            <audio id="shieldSound" src="assets/shield.wav"></audio>
+            <script type="module" src="script.js"></script>
+          </div>
+
+          <div class="introduction-game rounded-3 m-5">
+            <h2 class="text-center bg-light text-dark p-2 rounded-3">
+              Giới thiệu game
+            </h2>
+            <div class="d-flex ms-5 me-5">
+              <img
+                class="mt-5"
+                src="../images/Logo-Horses.png"
+                alt=""
+                width="250"
+                height="160"
+              />
+              <div class="ms-3">
+                <h4>Seahorses Gun</h4>
+                <p class="mb-0">
+                  Trong một tương lai không xa, thế giới đã thay đổi nhanh chóng
+                  khi con người đã chinh phục cả lòng đại dương sâu thẳm. Công
+                  nghệ tiên tiến đã tạo ra những con cá máy với trí tuệ nhân
+                  tạo, được sử dụng để khai thác tài nguyên và nghiên cứu về hệ
+                  sinh thái dưới đáy biển. Tuy nhiên, trong quá trình phát
+                  triển, một số con cá máy đã mất kiểm soát và biến thành những
+                  thế lực nguy hiểm.
+                </p>
+              </div>
+            </div>
+            <div class="ms-5 me-5 pb-2">
+              <p>
+                Chúng bắt đầu tấn công những cơ sở nghiên cứu và các phương tiện
+                khai thác dưới biển, gây ra sự hỗn loạn và nguy hiểm cho toàn bộ
+                cộng đồng. Người chơi sẽ nhập vai vào một người lái đò cá ngựa
+                máy tinh nghịch và can đảm. Với trang bị vũ khí mạnh mẽ, họ sẽ
+                đưa ra cuộc hành trình xuống đáy biển, chiến đấu chống lại những
+                con cá máy đang làm loạn. Trên hành trình này, người chơi sẽ
+                phải đối mặt với nhiều thách thức, từ những cuộc tấn công dồn
+                dập của các con cá máy đến những cạm bẫy và vùng biển nguy hiểm.
+                Họ cũng sẽ phải tìm hiểu về nguyên nhân gây ra sự cố này và phải
+                làm thế nào để khắc phục tình hình.
+              </p>
+              <p>
+                Dần dần, người chơi sẽ phát hiện ra rằng sự cố này không chỉ là
+                do lỗi kỹ thuật mà còn có sự can thiệp của một tổ chức bí ẩn. Tổ
+                chức này muốn lợi dụng sự hỗn loạn để chiếm lấy quyền lực và tài
+                nguyên dưới đáy biển. Trong hành trình của mình, người chơi sẽ
+                gặp gỡ những nhân vật quan trọng, từ những nhà khoa học đến các
+                chiến binh dũng cảm, đều đang lập kế hoạch và hợp tác để chống
+                lại âm mưu của tổ chức bí ẩn này. Với sự giúp đỡ của các nhân
+                vật này và trang bị vũ khí hiện đại, người chơi sẽ phải thực
+                hiện nhiệm vụ nguy hiểm như tiêu diệt các căn cứ của tổ chức,
+                thu thập thông tin tình báo, và tiêu diệt các con cá máy quyền
+                lực của tổ chức. Trong suốt cuộc hành trình, người chơi sẽ đối
+                mặt với những lựa chọn đạo đức khó khăn, phải quyết định giữa
+                việc bảo vệ lợi ích cá nhân hay đấu tranh cho hòa bình và công
+                bằng dưới biển sâu.
+              </p>
+            </div>
+          </div>
+
+          <div class="comment-game">
+            <h3 class="text-center bg-light text-dark rounded-3 p-1">
+              Bình luận
+            </h3>
+            <div class="ms-5 me-5 scroll">
+              <div id="comment-game"></div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <h4
+                id="icon-user-comment"
+                class="icon-user-comment bg-success d-flex justify-content-center align-items-center p-4 mb-0 me-1"
+              >
+                H
+              </h4>
+              <textarea
+                class="rounded-1"
+                placeholder="Viết bình luận"
+                name=""
+                id="input-comment"
+                cols="50"
+                rows="1"
+              ></textarea>
+              <button id="btn-submit-comment" class="ms-2 btn btn-primary">
+                Gửi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-game w-20 rounded-1" id="content-20-2">
+          <div id="content" class="m-1">
+            <h2 class="mb-4 text-light text-center">News</h2>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <button class="page-link" href="#" id="btn-prev">
+                  Previous
+                </button>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" id="page-num">1</a>
+              </li>
+              <li class="page-item">
+                <button class="page-link" id="btn-next">Next</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="news-container"></div>
+        </div>
+      </nav>
+    </section>
+    <footer class="Footer" id="footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../Scripts/link-file-none.js"></script>
+    <script src="../Scripts/function.js"></script>
+    <script src="../models/User.js"></script>
+    <script src="../Scripts/storage.js"></script>
+    <script src="../Scripts/news.js"></script>
+    <script src="..//4-Seahorses-gun/game-4.js"></script>
+  </body>
+</html>

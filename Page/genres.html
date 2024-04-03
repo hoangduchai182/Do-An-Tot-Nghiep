@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../images/logo.png" type="image/png" />
+    <title>Cafe Game - Egg Monster</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/size.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Denk+One&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Nabla&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../5-Alien-shooter/style.css" />
+  </head>
+  <body>
+    <header class="bg-header sticky">
+      <nav class="navbar navbar-expand-lg fw-bold fs-4 p-0">
+        <div class="container-fluid">
+          <div
+            class="w-100 d-flex justify-content-between align-items-center navbar_container"
+          >
+            <div class="d-flex align-items-center">
+              <img src="../images/logo.png" alt="" class="logo-nav" />
+              <div class="logo-title">
+                <p
+                  class="text-light ms-2 mb-0"
+                  style="font-family: 'Denk One', sans-serif"
+                >
+                  Cafe Game
+                </p>
+                <p
+                  class="d-flex justify-content-center text-light mb-0 fs-5"
+                  style="font-family: 'Devonshire', cursive"
+                >
+                  Plays
+                </p>
+              </div>
+            </div>
+            <div class="w-50 nav_div_link">
+              <div class="d-flex justify-content-end me-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100034215141765"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  >Fanpage</a
+                >
+                <a
+                  href="../Page/login.html"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  id="account"
+                  >Account</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="text-light">
+      <nav class="d-flex">
+        <div
+          class="d-flex flex-column nav_left w-20 p-3"
+          id="content-20-1"
+        ></div>
+
+        <div class="w-60 d-flex flex-column align-items-center" id="content-60">
+          <div class="w-50 m-3">
+            <h3 class="text-center">Tìm Kiếm</h3>
+            <div class="d-flex">
+              <input
+                class="form-control me-1"
+                type="text"
+                name=""
+                id="input-finding"
+                placeholder="Nhập thông tin tìm kiếm"
+              />
+              <button class="btn btn-primary" id="btn-finding">
+                <span class="material-symbols-outlined"> manage_search </span>
+              </button>
+            </div>
+            <div class="d-flex flex-wrap mt-3">
+              <div
+                class="bg-hover-white-bold border border-light p-1 rounded-2 me-1 mb-1"
+                id="hanhdong"
+              >
+                Hành động
+              </div>
+              <div
+                class="bg-hover-white-bold border border-light p-1 rounded-2 me-1 mb-1"
+                id="haihuoc"
+              >
+                Hài hước
+              </div>
+              <div
+                class="bg-hover-white-bold border border-light p-1 rounded-2 me-1 mb-1"
+                id="giatuong"
+              >
+                Giả tưởng
+              </div>
+              <div
+                class="bg-hover-white-bold border border-light p-1 rounded-2 me-1 mb-1"
+                id="trecon"
+              >
+                Trẻ con
+              </div>
+              <div
+                class="bg-hover-white-bold border border-light p-1 rounded-2 me-1 mb-1"
+                id="phieuluu"
+              >
+                Phiêu lưu
+              </div>
+            </div>
+          </div>
+          <div id="section-game"></div>
+        </div>
+
+        <div class="top-game w-20 rounded-1" id="content-20-2">
+          <div id="content" class="m-1">
+            <h2 class="mb-4 text-light text-center">News</h2>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <button class="page-link" href="#" id="btn-prev">
+                  Previous
+                </button>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" id="page-num">1</a>
+              </li>
+              <li class="page-item">
+                <button class="page-link" id="btn-next">Next</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="news-container"></div>
+        </div>
+      </nav>
+    </section>
+    <footer class="Footer" id="footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../Scripts/link-file-none.js"></script>
+    <script src="../Scripts/function.js"></script>
+    <script src="../models/User.js"></script>
+    <script src="../Scripts/storage.js"></script>
+    <script src="../Scripts/news.js"></script>
+    <script src="../Scripts/finding.js"></script>
+  </body>
+</html>
