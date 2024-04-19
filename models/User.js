@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class User {
   constructor(
@@ -6,7 +6,7 @@ class User {
     lastName,
     userName,
     passWord,
-    category = 'Science',
+    category = "Science",
     pagesize = 10
   ) {
     this.firstName = firstName;
@@ -15,11 +15,16 @@ class User {
     this.passWord = passWord;
     this.category = category;
     this.pagesize = pagesize;
-    this.score = 0;
+    this.flappyBird = 0;
+    this.DogShadow = 0;
+    this.EggMonster = 0;
+    this.SeaHorsesGun = 0;
+    this.AlienShooter = 0;
+    this.SnakeDog = 0;
   }
 }
 
-class Game {
+class Games {
   constructor(id, name, image, linkPlay, linkStory, description, genres) {
     this.id = id;
     this.name = name;

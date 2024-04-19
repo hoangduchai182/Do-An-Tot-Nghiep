@@ -8,7 +8,7 @@ export class Boss {
     this.lives = bossLives;
     this.maxLives = this.lives;
     this.markForDeletion = false;
-    this.image = document.getElementById('boss');
+    this.image = document.getElementById("boss");
     this.frameX = 1;
     this.spriteX = 200;
     this.spriteY = 200;
@@ -33,10 +33,10 @@ export class Boss {
 
     if (this.lives >= 1) {
       context.save();
-      context.textAlign = 'center';
+      context.textAlign = "center";
       context.shadowOffsetX = 3;
       context.shadowOffsetY = 3;
-      context.shadowColor = 'black';
+      context.shadowColor = "black";
       context.fillText(
         Math.floor(this.lives),
         this.x + this.width * 0.5,
@@ -60,7 +60,7 @@ export class Boss {
     this.x += this.speedX;
     this.y += this.speedY;
 
-    this.game.projectilesPool.forEach(projectile => {
+    this.game.projectilesPool.forEach((projectile) => {
       if (
         this.game.checkCollision(this, projectile) &&
         !projectile.free &&
@@ -84,7 +84,6 @@ export class Boss {
         this.markForDeletion = true;
         this.game.score += this.maxLives;
         this.game.bossLives += 5;
-        saveUser(this.maxLives);
         if (!this.game.gameOver) this.game.newWave();
       }
     }

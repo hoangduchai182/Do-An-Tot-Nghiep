@@ -1,10 +1,10 @@
-window.addEventListener('load', function () {
-  let canvas = document.getElementById('canvas1');
+window.addEventListener("load", function () {
+  let canvas = document.getElementById("canvas1");
   let canvasWidth = 360;
   let canvasHeight = 640;
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
-  let context = canvas.getContext('2d');
+  let context = canvas.getContext("2d");
 
   //bird
   let birdWidth = 34; // width/height ratio = 408/228 = 17/12
@@ -43,7 +43,7 @@ window.addEventListener('load', function () {
     constructor() {
       this.width = canvasWidth;
       this.height = canvasHeight;
-      this.image = document.getElementById('background');
+      this.image = document.getElementById("background");
       this.x = 0;
       this.y = 0;
     }
@@ -72,25 +72,25 @@ window.addEventListener('load', function () {
 
   //load images
   birdImg = new Image();
-  birdImg.src = '../1-Flappy-Bird/flappybird.png';
+  birdImg.src = "../1-Flappy-Bird/flappybird.png";
   birdImg.onload = function () {
     context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
   };
 
   topPipeImg = new Image();
-  topPipeImg.src = './toppipe.png';
+  topPipeImg.src = "./toppipe.png";
 
   bottomPipeImg = new Image();
-  bottomPipeImg.src = './bottompipe.png';
+  bottomPipeImg.src = "./bottompipe.png";
 
   function startGame() {
     background.draw(context);
     context.save();
-    context.font = '40px Nabla';
-    context.fillText('Press Left Mouse', 20, 200);
-    context.fillText('To Start !', 20, 250);
+    context.font = "40px Nabla";
+    context.fillText("Press Left Mouse", 20, 200);
+    context.fillText("To Start !", 20, 250);
     context.restore();
-    document.addEventListener('mousedown', function (e) {
+    document.addEventListener("mousedown", function (e) {
       if (e.button === 0 && !gameStarted) {
         // Nếu click chuột trái và trò chơi chưa bắt đầu
         gameStarted = true; // Đánh dấu rằng trò chơi đã bắt đầu
@@ -102,7 +102,7 @@ window.addEventListener('load', function () {
   startGame();
 
   // document.addEventListener('keydown', moveBird);
-  document.addEventListener('mousedown', function (e) {
+  document.addEventListener("mousedown", function (e) {
     if (e.button === 0) {
       // Nút chuột trái
       velocityY = -6;
@@ -140,7 +140,6 @@ window.addEventListener('load', function () {
       if (!pipe.passed && bird.x > pipe.x + pipe.width) {
         score += 0.5;
         pipe.passed = true;
-        saveUser(0.5);
       }
 
       if (VaCham(bird, pipe)) {
@@ -153,17 +152,18 @@ window.addEventListener('load', function () {
     }
 
     context.save();
-    context.font = '25px Nabla';
-    context.fillText('Score: ' + score, 20, 40);
+    context.font = "25px Nabla";
+    context.fillText("Score: " + score, 20, 40);
     context.restore();
 
     if (gameOver) {
       context.save();
-      context.font = 'bold 50px Serif';
-      context.fillStyle = 'red';
-      context.fillText('GAME OVER', 30, 300);
+      context.font = "bold 50px Serif";
+      context.fillStyle = "red";
+      context.fillText("GAME OVER", 30, 300);
       context.restore();
-      document.addEventListener('mousedown', function (e) {
+      ScoreFlappyBird(score);
+      document.addEventListener("mousedown", function (e) {
         if (e.button === 0) {
           context.clearRect(0, 0, canvas.width, canvas.height);
           startGame();
@@ -204,7 +204,7 @@ window.addEventListener('load', function () {
   }
 
   function moveBird(e) {
-    if (e.code == 'KeyW' || e.code == 'ArrowUp' || e.code == 'KeyX') {
+    if (e.code == "KeyW" || e.code == "ArrowUp" || e.code == "KeyX") {
       //nhảy
       velocityY = -6;
     }

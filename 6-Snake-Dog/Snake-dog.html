@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../images/logo.png" type="image/png" />
+    <title>Cafe Game - Snake Dog</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/size.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Denk+One&family=Devonshire&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Nabla&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../6-Snake-Dog/style-custom.css" />
+  </head>
+  <body>
+    <header class="bg-header sticky">
+      <nav class="navbar navbar-expand-lg fw-bold fs-4 p-0">
+        <div class="container-fluid">
+          <div
+            class="w-100 d-flex justify-content-between align-items-center navbar_container"
+          >
+            <div class="d-flex align-items-center">
+              <img src="../images/logo.png" alt="" class="logo-nav" />
+              <div class="logo-title">
+                <p
+                  class="text-light ms-2 mb-0"
+                  style="font-family: 'Denk One', sans-serif"
+                >
+                  Cafe Game
+                </p>
+                <p
+                  class="d-flex justify-content-center text-light mb-0 fs-5"
+                  style="font-family: 'Devonshire', cursive"
+                >
+                  Plays
+                </p>
+              </div>
+            </div>
+            <div class="w-50 nav_div_link">
+              <div class="d-flex justify-content-end me-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100034215141765"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  >Fanpage</a
+                >
+                <a
+                  href="../Page/login.html"
+                  class="text-decoration-none text-light mb-0 ms-3 me-3 nav_a"
+                  id="account"
+                  >Account</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="text-light">
+      <nav class="d-flex">
+        <div
+          class="d-flex flex-column nav_left w-20 p-3"
+          id="content-20-1"
+        ></div>
+
+        <div class="w-60" id="content-60">
+          <div class="w-100" style="height: 100vh">
+            <div class="w-100">
+              <canvas id="canvas1"></canvas>
+              <canvas id="canvas2"></canvas>
+              <div id="gameOverScreen"></div>
+            </div>
+
+            <div id="controls">
+              <div id="buttons">
+                <button id="startButton">Start</button>
+                <div
+                  id="scoreScreen"
+                  class="d-flex justify-content-around w-75"
+                >
+                  <h5 id="scoreBoard1" class="mb-0">Player 1</h5>
+                  <h5 id="scoreBoard2" class="mb-0">Player 2</h5>
+                  <h5 id="scoreBoard3" class="mb-0">Player 3</h5>
+                  <h5 id="scoreBoard4" class="mb-0">Player 4</h5>
+                </div>
+                <button id="debugtButton">Debug</button>
+              </div>
+
+              <div id="gameMenu">
+                <div id="message1">Welcome</div>
+                <div id="message2">Choose your Character</div>
+                <div id="playerChoice" class="d-flex">
+                  <div class="m-1">
+                    <div class="player1 d-flex flex-column mb-3">
+                      <h4 for="player1character">Player1</h4>
+                      <select name="player1character" id="player1character">
+                        <option value="snake_corgi" selected>
+                          Snake Corgi
+                        </option>
+                        <option value="spectral_schnoodle">
+                          Spectral Schnoodle
+                        </option>
+                        <option value="void_wolf">Void Wolf</option>
+                        <option value="sticky_saberhound">
+                          Sticky Saberhound
+                        </option>
+                      </select>
+
+                      <label for="player1name">Name:</label>
+                      <input type="text" name="" id="player1name" value="P1" />
+
+                      <label for="player1controls">Controls: </label>
+                      <select name="player1controls" id="player1controls">
+                        <option value="ai" selected>Computer AI</option>
+                        <option value="wsad">Keyboard WSAD</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="m-1">
+                    <div class="player2 d-flex flex-column mb-3">
+                      <h4 for="player2character">Player2</h4>
+                      <select name="player2character" id="player2character">
+                        <option value="spectral_schnoodle" selected>
+                          Spectral Schnoodle
+                        </option>
+                        <option value="snake_corgi">Snake Corgi</option>
+                        <option value="void_wolf">Void Wolf</option>
+                        <option value="sticky_saberhound">
+                          Sticky Saberhound
+                        </option>
+                      </select>
+
+                      <label for="player2name">Name:</label>
+                      <input type="text" name="" id="player2name" value="P2" />
+
+                      <label for="player2controls">Controls: </label>
+                      <select name="player2controls" id="player2controls">
+                        <option value="ai" selected>Computer AI</option>
+                        <!-- <option value="1235">Keyboard 1235</option> -->
+                      </select>
+                    </div>
+                  </div>
+                  <div class="m-1">
+                    <div class="player3 d-flex flex-column mb-3">
+                      <h4 for="player3character">Player3</h4>
+                      <select name="player3character" id="player3character">
+                        <option value="void_wolf" selected>Void Wolf</option>
+                        <option value="snake_corgi">Snake Corgi</option>
+                        <option value="spectral_schnoodle">
+                          Spectral Schnoodle
+                        </option>
+                        <option value="sticky_saberhound">
+                          Sticky Saberhound
+                        </option>
+                      </select>
+
+                      <label for="player3name">Name:</label>
+                      <input
+                        type="text"
+                        name=""
+                        id="player3name"
+                        value="AI 1"
+                      />
+
+                      <label for="player3controls">Controls: </label>
+                      <select name="player3controls" id="player3controls">
+                        <option value="ai">Computer AI</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="m-1">
+                    <div class="player4 d-flex flex-column mb-3">
+                      <h4 for="player4character">Player4</h4>
+                      <select name="player4character" id="player4character">
+                        <option value="sticky_saberhound">
+                          Sticky Saberhound
+                        </option>
+                        <option value="snake_corgi">Snake Corgi</option>
+                        <option value="spectral_schnoodle">
+                          Spectral Schnoodle
+                        </option>
+                        <option value="void_wolf" selected>Void Wolf</option>
+                      </select>
+
+                      <label for="player4name">Name:</label>
+                      <input
+                        type="text"
+                        name=""
+                        id="player4name"
+                        value="AI 2"
+                      />
+
+                      <label for="player4controls">Controls: </label>
+                      <select name="player4controls" id="player4controls">
+                        <option value="ai">Computer AI</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <label for="ai_difficulty">Độ khó: </label>
+                <select name="ai_difficulty" id="ai_difficulty">
+                  <option value="40" selected>Dễ</option>
+                  <option value="15">Trung bình</option>
+                  <option value="3">Khó</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="assets">
+              <!-- food -->
+              <img
+                id="forest_margin_repeat"
+                src="./assets/images/forest_margin_repeat_1600x600.png"
+                alt=""
+              />
+              <img
+                id="magic_berry1"
+                src="./assets/images/magic_berry1.png"
+                alt=""
+              />
+              <img
+                id="mushroom_sprite"
+                src="./assets/images/mushroom_sprite.png"
+                alt=""
+              />
+              <img id="food" src="./assets/images/food.png" alt="" />
+
+              <!-- snake -->
+              <img
+                id="snake_corgi"
+                src="./assets/images/snake_corgi.png"
+                alt=""
+              />
+              <img id="void_wolf" src="./assets/images/void_wolf.png" alt="" />
+              <img
+                id="sticky_saberhound"
+                src="./assets/images/sticky_saberhound.png"
+                alt=""
+              />
+              <img
+                id="spectral_schnoodle"
+                src="./assets/images/spectral_schnoodle.png"
+                alt=""
+              />
+
+              <!-- sound -->
+              <audio id="bite1" src="./assets/sounds/bite1.mp3"></audio>
+              <audio id="bite2" src="./assets/sounds/bite2.mp3"></audio>
+              <audio id="bite3" src="./assets/sounds/bite3.mp3"></audio>
+              <audio id="bite4" src="./assets/sounds/bite4.mp3"></audio>
+              <audio id="bite5" src="./assets/sounds/bite5.mp3"></audio>
+              <audio id="bad_food" src="./assets/sounds/bad_food.mp3"></audio>
+              <audio id="start" src="./assets/sounds/start.mp3"></audio>
+              <audio id="restart" src="./assets/sounds/restart.mp3"></audio>
+              <audio id="win" src="./assets/sounds/win.mp3"></audio>
+              <audio id="button" src="./assets/sounds/button.mp3"></audio>
+            </div>
+          </div>
+
+          <div class="introduction-game rounded-3 m-5">
+            <h2 class="text-center bg-light text-dark p-2 rounded-3">
+              Giới thiệu game
+            </h2>
+            <div class="d-flex ms-5 me-5">
+              <img
+                class="mt-5"
+                src="../images/logo-Snake-Dog.png"
+                alt=""
+                width="250"
+                height="160"
+              />
+              <div class="ms-3">
+                <h4>Snake Dog</h4>
+                <p class="mb-0">
+                  Một huyền thoại từ thời xa xưa kể về một người chơi sáng tạo
+                  đã tạo ra một trò chơi mới, nơi mà chú chó không chỉ là những
+                  người bạn trung thành của con người mà còn là những thợ săn
+                  tài ba. Trò chơi này không chỉ là một cuộc săn mồi thông
+                  thường, mà còn là một cuộc đua sinh tồn giữa các chú chó khôn
+                  ngoan. Câu chuyện bắt đầu khi một chú chó tên là Rex, một
+                  trong những chú chó dũng mãnh và thông minh nhất trong thung
+                  lũng. Rex còn là một chú chó được huấn luyện tốt và có kỹ năng
+                  săn mồi tuyệt vời, nhưng để chiến thắng trong trò chơi này,
+                  anh cần phải đối mặt với những thách thức lớn lao.
+                </p>
+              </div>
+            </div>
+            <div class="ms-5 me-5 pb-2">
+              <p>
+                Trong Thung Lũng Hòa Bình, có ba kẻ săn mồi khác đang đợi sẵn để
+                thách thức bất cứ ai dám tham gia vào trò chơi. Chúng là Spike,
+                Duke và Luna - ba kẻ săn mồi lừng danh trong khu rừng này. Mỗi
+                kẻ săn mồi đều có những đặc điểm riêng biệt và kỹ năng săn mồi
+                đặc sắc của mình. Spike là kẻ săn mồi hung dữ và mạnh mẽ, Duke
+                là kẻ săn mồi tinh quái và khó lường, còn Luna là kẻ săn mồi
+                tinh nghịch và nhanh nhẹn.
+              </p>
+              <p>
+                Rex biết rằng để chiến thắng, anh cần phải sử dụng sự thông minh
+                và kỹ năng của mình để vượt qua những thử thách và cạnh tranh
+                với ba kẻ săn mồi khác để giành lấy thức ăn và trở thành chú chó
+                sống sót cuối cùng trong thung lũng. Cuộc phiêu lưu của Rex để
+                trở thành vua săn mồi của Thung Lũng Hòa Bình đã bắt đầu, và chỉ
+                có thể có một người chiến thắng.
+              </p>
+            </div>
+          </div>
+
+          <div class="comment-game">
+            <h3 class="text-center bg-light text-dark rounded-3 p-1">
+              Bình luận
+            </h3>
+            <div class="ms-5 me-5 scroll">
+              <div id="comment-game"></div>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <h4
+                id="icon-user-comment"
+                class="icon-user-comment bg-success d-flex justify-content-center align-items-center p-4 mb-0 me-1"
+              >
+                H
+              </h4>
+              <textarea
+                class="rounded-1"
+                placeholder="Viết bình luận"
+                name=""
+                id="input-comment"
+                cols="50"
+                rows="1"
+              ></textarea>
+              <button id="btn-submit-comment" class="ms-2 btn btn-primary">
+                Gửi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-game w-20 rounded-1" id="content-20-2">
+          <div id="content" class="m-1">
+            <h2 class="mb-4 text-light text-center">News</h2>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <button class="page-link" href="#" id="btn-prev">
+                  Previous
+                </button>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" id="page-num">1</a>
+              </li>
+              <li class="page-item">
+                <button class="page-link" id="btn-next">Next</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="news-container"></div>
+        </div>
+      </nav>
+    </section>
+    <footer class="Footer" id="footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../Scripts/link-file-none.js"></script>
+    <script src="../Scripts/function.js"></script>
+    <script src="../models/User.js"></script>
+    <script src="../Scripts/storage.js"></script>
+    <script src="../Scripts/news.js"></script>
+    <script src="../6-Snake-Dog/game-6.js"></script>
+
+    <script type="module" src="../6-Snake-Dog/main.js"></script>
+  </body>
+</html>

@@ -6,10 +6,10 @@ import {
   Rolling,
   Diving,
   HIT,
-} from './playerStates.js';
-import { states } from './playerStates.js';
-import { CollisionAnimation } from './collisionAnimation.js';
-import { FloatingMessage } from './floatingMessages.js';
+} from "./playerStates.js";
+import { states } from "./playerStates.js";
+import { CollisionAnimation } from "./collisionAnimation.js";
+import { FloatingMessage } from "./floatingMessages.js";
 
 export class Player {
   constructor(game) {
@@ -20,7 +20,7 @@ export class Player {
     this.y = this.game.height - this.height - this.game.groundMargin;
     this.vy = 0;
     this.weight = 1;
-    this.image = document.getElementById('player');
+    this.image = document.getElementById("player");
     this.frameX = 0;
     this.frameY = 0;
     this.maxFrame;
@@ -55,9 +55,9 @@ export class Player {
 
     this.x += this.speed;
 
-    if (input.includes('d') && this.currenState !== this.states[6])
+    if (input.includes("d") && this.currenState !== this.states[6])
       this.speed = this.maxSpeed;
-    else if (input.includes('a') && this.currenState !== this.states[6])
+    else if (input.includes("a") && this.currenState !== this.states[6])
       this.speed = -this.maxSpeed;
     else this.speed = 0;
     if (this.x < 0) this.x = 0;
@@ -106,7 +106,7 @@ export class Player {
   }
 
   checkCollision() {
-    this.game.enemies.forEach(enemy => {
+    this.game.enemies.forEach((enemy) => {
       if (
         enemy.x < this.x + this.width &&
         enemy.x + enemy.width > this.x &&
@@ -126,14 +126,12 @@ export class Player {
           this.currenState === this.states[5]
         ) {
           this.game.score++;
-          saveUser(1);
           this.game.floatingMessage.push(
-            new FloatingMessage('+1', enemy.x, enemy.y, 150, 100)
+            new FloatingMessage("+1", enemy.x, enemy.y, 150, 100)
           );
         } else {
           this.setState(6, 0);
           this.game.score -= 5;
-          saveUser(-5);
           this.game.lives--;
           if (this.game.lives <= 0) {
             this.game.gameOver = true;

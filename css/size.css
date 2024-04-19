@@ -86,3 +86,6 @@
   font-size: 12px;
   background: linear-gradient(rgb(255, 130, 58), rgb(255, 213, 183)) !important;
 }
+.font-honk {
+  font-family: "Honk", system-ui;
+}

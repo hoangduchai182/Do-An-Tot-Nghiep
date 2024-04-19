@@ -1,16 +1,16 @@
-import { InputHandler } from './scripts/InputHandler.js';
-import { SoundController } from './scripts/SoundController.js';
-import { Shield } from './scripts/Shield.js';
-import { Projectile } from './scripts/Projectile.js';
-import { Particle } from './scripts/Particle.js';
-import { Player } from './scripts/Player.js';
-import { Background, Layer } from './scripts/Background.js';
+import { InputHandler } from "./scripts/InputHandler.js";
+import { SoundController } from "./scripts/SoundController.js";
+import { Shield } from "./scripts/Shield.js";
+import { Projectile } from "./scripts/Projectile.js";
+import { Particle } from "./scripts/Particle.js";
+import { Player } from "./scripts/Player.js";
+import { Background, Layer } from "./scripts/Background.js";
 import {
   Explosion,
   SmokeExplosion,
   FireExplosion,
-} from './scripts/Explosion.js';
-import { UI } from './scripts/UI.js';
+} from "./scripts/Explosion.js";
+import { UI } from "./scripts/UI.js";
 import {
   Enemy,
   Angler1,
@@ -22,12 +22,12 @@ import {
   BulbWhale,
   Drone,
   HiveWhale,
-} from './scripts/Enemy.js';
+} from "./scripts/Enemy.js";
 
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
   // canvas setup
-  const canvas = document.getElementById('canvas1');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("canvas1");
+  const ctx = canvas.getContext("2d");
   canvas.width = 900;
   canvas.height = 500;
 
@@ -92,15 +92,15 @@ window.addEventListener('load', function () {
         this.ammoTimer += deltaTime;
       }
       this.shield.update(deltaTime);
-      this.particles.forEach(particle => particle.update());
+      this.particles.forEach((particle) => particle.update());
       this.particles = this.particles.filter(
-        particle => !particle.markedForDeletion
+        (particle) => !particle.markedForDeletion
       );
-      this.explosions.forEach(explosion => explosion.update(deltaTime));
+      this.explosions.forEach((explosion) => explosion.update(deltaTime));
       this.explosions = this.explosions.filter(
-        explosion => !explosion.markedForDeletion
+        (explosion) => !explosion.markedForDeletion
       );
-      this.enemies.forEach(enemy => {
+      this.enemies.forEach((enemy) => {
         enemy.update();
         if (this.checkCollision(this.player, enemy)) {
           enemy.markedForDeletion = true;
@@ -116,14 +116,13 @@ window.addEventListener('load', function () {
               )
             );
           }
-          if (enemy.type === 'lucky') {
+          if (enemy.type === "lucky") {
             this.player.enterPowerUp();
           } else if (!this.gameOver) {
             this.score -= 20;
-            saveUser(-20);
           }
         }
-        this.player.projectiles.forEach(projectile => {
+        this.player.projectiles.forEach((projectile) => {
           if (this.checkCollision(projectile, enemy)) {
             enemy.lives--;
             projectile.markedForDeletion = true;
@@ -147,8 +146,8 @@ window.addEventListener('load', function () {
               enemy.markedForDeletion = true;
               this.addExplosion(enemy);
               this.sound.explosion();
-              if (enemy.type === 'moon') this.player.enterPowerUp();
-              if (enemy.type === 'hive') {
+              if (enemy.type === "moon") this.player.enterPowerUp();
+              if (enemy.type === "hive") {
                 for (let i = 0; i < 5; i++) {
                   this.enemies.push(
                     new Drone(
@@ -161,14 +160,13 @@ window.addEventListener('load', function () {
               }
               if (!this.gameOver) {
                 this.score += enemy.score;
-                saveUser(enemy.score);
               }
               /* if (this.score > this.winningScore) this.gameOver = true; */
             }
           }
         });
       });
-      this.enemies = this.enemies.filter(enemy => !enemy.markedForDeletion);
+      this.enemies = this.enemies.filter((enemy) => !enemy.markedForDeletion);
       if (this.enemyTimer > this.enemyInterval && !this.gameOver) {
         this.addEnemy();
         this.enemyTimer = 0;
@@ -181,11 +179,11 @@ window.addEventListener('load', function () {
       this.ui.draw(context);
       this.player.draw(context);
       this.shield.draw(context);
-      this.particles.forEach(particle => particle.draw(context));
-      this.enemies.forEach(enemy => {
+      this.particles.forEach((particle) => particle.draw(context));
+      this.enemies.forEach((enemy) => {
         enemy.draw(context);
       });
-      this.explosions.forEach(explosion => {
+      this.explosions.forEach((explosion) => {
         explosion.draw(context);
       });
       this.background.layer4.draw(context);
@@ -239,34 +237,34 @@ window.addEventListener('load', function () {
     context.drawImage(game.background.image2, 0, 0);
     context.drawImage(game.background.image3, 0, 0);
     context.drawImage(game.background.image4, 0, 0);
-    context.fillStyle = 'rgba(0,0,0,0.7)';
+    context.fillStyle = "rgba(0,0,0,0.7)";
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = 'white';
-    context.textAlign = 'center';
+    context.fillStyle = "white";
+    context.textAlign = "center";
     context.shadowOffsetX = 4;
     context.shadowOffsetY = 4;
-    context.shadowColor = 'black';
-    context.font = '50px Bangers';
+    context.shadowColor = "black";
+    context.font = "50px Bangers";
     context.fillText(
-      'Ấn Chuột trái để bắt đầu',
+      "Ấn Chuột trái để bắt đầu",
       canvas.width * 0.5,
       canvas.height * 0.5 - 20
     );
-    context.font = '30px Bangers';
-    context.fillText('Luật chơi', canvas.width * 0.5, canvas.height * 0.5 + 30);
-    context.font = '20px Bangers';
+    context.font = "30px Bangers";
+    context.fillText("Luật chơi", canvas.width * 0.5, canvas.height * 0.5 + 30);
+    context.font = "20px Bangers";
     context.fillText(
-      'Bạn sẽ điều khiển nhân vật lên xuống bằng nút W và S',
+      "Bạn sẽ điều khiển nhân vật lên xuống bằng nút W và S",
       canvas.width * 0.5,
       canvas.height * 0.5 + 60
     );
     context.fillText(
-      'Ấn chuột trái để bắn !',
+      "Ấn chuột trái để bắn !",
       canvas.width * 0.5,
       canvas.height * 0.5 + 90
     );
     context.fillText(
-      'Bảo vệ bản thân khỏi kẻ địch',
+      "Bảo vệ bản thân khỏi kẻ địch",
       canvas.width * 0.5,
       canvas.height * 0.5 + 120
     );
@@ -284,7 +282,7 @@ window.addEventListener('load', function () {
   const startTime = performance.now();
   let restartRequested = false;
 
-  document.addEventListener('mousedown', function (e) {
+  document.addEventListener("mousedown", function (e) {
     if (e.button === 0 && !game.gameStart) {
       game.gameStart = true;
       let lastTime = performance.now() - startTime;
@@ -300,21 +298,21 @@ window.addEventListener('load', function () {
         if (game.gameOver && restartRequested) {
           restartRequested = false;
           game.restartGame();
-          window.removeEventListener('keydown', handleRestart);
+          window.removeEventListener("keydown", handleRestart);
         }
       }
 
       animate();
       // Bắt đầu lắng nghe sự kiện khi nhấn phím "R"
-      const handleRestart = e => {
-        if (e.key === 'r') {
+      const handleRestart = (e) => {
+        if (e.key === "r") {
           if (!restartRequested && game.gameOver) {
             restartRequested = true;
           }
         }
       };
 
-      window.addEventListener('keydown', handleRestart);
+      window.addEventListener("keydown", handleRestart);
     }
   });
 });

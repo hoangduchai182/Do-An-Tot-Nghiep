@@ -1,10 +1,10 @@
-import { Background } from './background.js';
-import { Laser, SmallLaser, BigLaser } from './scripts/Laser.js';
-import { Projectile } from './scripts/Projecttile.js';
-import { Enemy, Rhinomorph, Beetlemorph } from './scripts/Enemy.js';
-import { Boss } from './scripts/Boss.js';
-import { Wave } from './scripts/Wave.js';
-import { Player } from './scripts/Player.js';
+import { Background } from "./background.js";
+import { Laser, SmallLaser, BigLaser } from "./scripts/Laser.js";
+import { Projectile } from "./scripts/Projecttile.js";
+import { Enemy, Rhinomorph, Beetlemorph } from "./scripts/Enemy.js";
+import { Boss } from "./scripts/Boss.js";
+import { Wave } from "./scripts/Wave.js";
+import { Player } from "./scripts/Player.js";
 
 export class Game {
   constructor(canvas) {
@@ -46,33 +46,33 @@ export class Game {
 
     this.gameStart = false;
 
-    canvas.addEventListener('mousedown', e => {
+    canvas.addEventListener("mousedown", (e) => {
       this.mouse.x = e.offsetX;
       this.mouse.y = e.offsetY;
     });
-    canvas.addEventListener('mouseup', e => {
+    canvas.addEventListener("mouseup", (e) => {
       this.mouse.x = e.offsetX;
       this.mouse.y = e.offsetY;
     });
-    canvas.addEventListener('mousemove', e => {
+    canvas.addEventListener("mousemove", (e) => {
       this.mouse.x = e.offsetX;
       this.mouse.y = e.offsetY;
     });
 
     //this.player.shoot();
-    window.addEventListener('keydown', e => {
+    window.addEventListener("keydown", (e) => {
       if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
-      if (e.key === '1' && !this.fired) this.player.shoot();
+      if (e.key === "1" && !this.fired) this.player.shoot();
       this.fired = true;
-      if (e.key === 'r' && this.gameOver) this.restart();
+      if (e.key === "r" && this.gameOver) this.restart();
     });
-    window.addEventListener('mousedown', e => {
+    window.addEventListener("mousedown", (e) => {
       if (e.button === 0 && !this.fired) {
         // Nút chuột trái
         this.player.shoot();
       }
     });
-    window.addEventListener('keyup', e => {
+    window.addEventListener("keyup", (e) => {
       this.fired = false;
       const index = this.keys.indexOf(e.key);
       if (index > -1) this.keys.splice(index, 1);
@@ -92,7 +92,7 @@ export class Game {
     }
 
     this.drawStatusText(context);
-    this.projectilesPool.forEach(projectile => {
+    this.projectilesPool.forEach((projectile) => {
       projectile.update();
       projectile.draw(context);
     });
@@ -100,13 +100,13 @@ export class Game {
     this.player.draw(context);
     this.player.update();
 
-    this.bossArray.forEach(boss => {
+    this.bossArray.forEach((boss) => {
       boss.draw(context);
       boss.update();
     });
-    this.bossArray = this.bossArray.filter(object => !object.markForDeletion);
+    this.bossArray = this.bossArray.filter((object) => !object.markForDeletion);
 
-    this.waves.forEach(wave => {
+    this.waves.forEach((wave) => {
       wave.render(context);
       if (wave.enemies.length < 1 && !wave.nextWaveTrigger && !this.gameOver) {
         this.newWave();
@@ -143,10 +143,10 @@ export class Game {
     context.save();
     context.shadowOffsetX = 2;
     context.shadowOffsetY = 2;
-    context.shadowColor = 'black';
-    context.font = '20px Nabla';
-    context.fillText('Score: ' + this.score, 20, 40);
-    context.fillText('Wave: ' + this.waveCount, 20, 80);
+    context.shadowColor = "black";
+    context.font = "20px Nabla";
+    context.fillText("Score: " + this.score, 20, 40);
+    context.fillText("Wave: " + this.waveCount, 20, 80);
 
     for (let i = 0; i < this.player.maxLives; i++) {
       context.strokeRect(20 + 20 * i, 100, 10, 15);
@@ -158,19 +158,20 @@ export class Game {
     // cooldown energy
     context.save();
     this.player.cooldown
-      ? (context.fillStyle = 'red')
-      : (context.fillStyle = 'gold');
+      ? (context.fillStyle = "red")
+      : (context.fillStyle = "gold");
     for (let i = 0; i < this.player.energy; i++) {
       context.fillRect(20 + 2 * i, 130, 2, 15);
     }
 
     if (this.gameOver) {
-      context.textAlign = 'center';
-      context.font = '100px Impact';
-      context.fillText('NON !', this.width * 0.5, this.height * 0.5);
-      context.font = '20px Impact';
+      ScoreAlienShooter(this.score);
+      context.textAlign = "center";
+      context.font = "100px Impact";
+      context.fillText("NON !", this.width * 0.5, this.height * 0.5);
+      context.font = "20px Impact";
       context.fillText(
-        'Press R to restart !',
+        "Press R to restart !",
         this.width * 0.5,
         this.height * 0.5 + 30
       );
@@ -195,7 +196,7 @@ export class Game {
       this.waves.push(new Wave(this));
     }
 
-    this.waves = this.waves.filter(object => !object.markForDeletion);
+    this.waves = this.waves.filter((object) => !object.markForDeletion);
   }
 
   restart() {
@@ -221,61 +222,61 @@ export class Game {
   }
 }
 
-window.addEventListener('load', function () {
-  const canvas = document.getElementById('canvas1');
-  const ctx = canvas.getContext('2d');
+window.addEventListener("load", function () {
+  const canvas = document.getElementById("canvas1");
+  const ctx = canvas.getContext("2d");
   canvas.width = 600;
   canvas.height = 630;
-  ctx.fillStyle = 'white';
-  ctx.strokeStyle = 'white';
-  ctx.font = '30px Impact';
+  ctx.fillStyle = "white";
+  ctx.strokeStyle = "white";
+  ctx.font = "30px Impact";
 
   const game = new Game(canvas);
 
   function startGame(context) {
     context.save();
     context.drawImage(
-      document.getElementById('background-7'),
+      document.getElementById("background-7"),
       0,
       0,
       game.width,
       game.height
     );
-    context.fillStyle = 'rgba(0,0,0,0.5)';
+    context.fillStyle = "rgba(0,0,0,0.5)";
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = 'white';
-    context.textAlign = 'center';
+    context.fillStyle = "white";
+    context.textAlign = "center";
     context.shadowOffsetX = 4;
     context.shadowOffsetY = 4;
-    context.shadowColor = 'black';
-    context.font = '50px Bangers';
+    context.shadowColor = "black";
+    context.font = "50px Bangers";
     context.fillText(
-      'Ấn Chuột trái để bắt đầu',
+      "Ấn Chuột trái để bắt đầu",
       canvas.width * 0.5,
       canvas.height * 0.5 - 20
     );
-    context.font = '30px Bangers';
-    context.fillText('Luật chơi', canvas.width * 0.5, canvas.height * 0.5 + 30);
-    context.font = '20px Bangers';
+    context.font = "30px Bangers";
+    context.fillText("Luật chơi", canvas.width * 0.5, canvas.height * 0.5 + 30);
+    context.font = "20px Bangers";
     context.fillText(
-      'Bạn di chuyển chuột để điều khiển máy bay, Ấn chuột trái để bắn',
+      "Bạn di chuyển chuột để điều khiển máy bay, Ấn chuột trái để bắn",
       canvas.width * 0.5,
       canvas.height * 0.5 + 60
     );
     context.fillText(
-      'Ấn phím 2 và 3 để bắn Laser. Chú ý vạch năng lượng nhé !',
+      "Ấn phím 2 và 3 để bắn Laser. Chú ý vạch năng lượng nhé !",
       canvas.width * 0.5,
       canvas.height * 0.5 + 90
     );
     context.fillText(
-      'Và Đừng để bản thân va phải Alien',
+      "Và Đừng để bản thân va phải Alien",
       canvas.width * 0.5,
       canvas.height * 0.5 + 120
     );
     context.restore();
   }
   startGame(ctx);
-  document.addEventListener('mousedown', function (e) {
+  document.addEventListener("mousedown", function (e) {
     if (e.button === 0 && !game.gameStart) {
       game.gameStart = true;
       let lastTime = 0;

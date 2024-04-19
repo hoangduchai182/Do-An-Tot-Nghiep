@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#canvas1 {
+  border: 5px solid black;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url(./assets/images/grass_night.png);
+  height: 60%;
+  width: 60%;
+}
+#canvas2 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  width: 60%;
+  pointer-events: none;
+}
+
+#gameOverScreen {
+  background: url(./assets/images/gameOver_forest.png);
+  position: absolute;
+  top: 15%;
+  width: 60%;
+  height: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#controls {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 5px solid black;
+  color: white;
+  font: 15px;
+}
+
+#buttons {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 auto;
+}
+
+#buttons button {
+  width: 65px;
+  background: black;
+  color: white;
+}
+
+#playerChoice {
+  padding: 10px 5px;
+}
+.playerLabel {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.assets {
+  display: none;
+}
+
+#gameMenu {
+  display: block;
+  padding-top: 10px;
+  text-align: center;
+}
+
+#playerChoice {
+  padding: 20px 0;
+}
+
+#playerChoice > div {
+  padding: 10px 5px;
+}
+
+#message1 {
+  font-size: 30px;
+  text-align: center;
+}
+#message2 {
+  font-size: 20px;
+  text-align: center;
+}

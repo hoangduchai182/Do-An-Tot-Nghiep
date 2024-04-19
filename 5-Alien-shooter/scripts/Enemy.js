@@ -32,7 +32,7 @@ export class Enemy {
     this.y = y + this.positionY;
 
     //check collision
-    this.game.projectilesPool.forEach(projectile => {
+    this.game.projectilesPool.forEach((projectile) => {
       if (
         !projectile.free &&
         this.game.checkCollision(this, projectile) &&
@@ -49,7 +49,6 @@ export class Enemy {
         this.markForDeletion = true;
         if (!this.game.gameOver) {
           this.game.score += this.maxLives;
-          saveUser(this.maxLives);
         }
       }
     }
@@ -73,7 +72,7 @@ export class Enemy {
 export class Beetlemorph extends Enemy {
   constructor(game, positionX, positionY) {
     super(game, positionX, positionY);
-    this.image = document.getElementById('beetlemorph');
+    this.image = document.getElementById("beetlemorph");
     this.frameX = 0;
     this.maxFrame = 2;
     this.frameY = Math.floor(Math.random() * 4);
@@ -84,7 +83,7 @@ export class Beetlemorph extends Enemy {
 export class Rhinomorph extends Enemy {
   constructor(game, positionX, positionY) {
     super(game, positionX, positionY);
-    this.image = document.getElementById('rhinomorph');
+    this.image = document.getElementById("rhinomorph");
     this.frameX = 0;
     this.maxFrame = 5;
     this.frameY = Math.floor(Math.random() * 4);
