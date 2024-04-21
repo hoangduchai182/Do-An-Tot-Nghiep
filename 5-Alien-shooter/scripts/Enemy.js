@@ -38,6 +38,7 @@ export class Enemy {
         this.game.checkCollision(this, projectile) &&
         this.lives > 0
       ) {
+        this.game.sound.play(this.game.sound.hit);
         this.hit(1);
         projectile.reset();
       }
@@ -56,6 +57,7 @@ export class Enemy {
     if (this.game.checkCollision(this, this.game.player) && this.lives > 0) {
       this.lives = 0;
       this.game.player.lives--;
+      this.game.sound.play(this.game.sound.boom);
     }
 
     // lost

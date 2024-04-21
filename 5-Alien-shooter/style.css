@@ -12,6 +12,12 @@
 #background-5,
 #background-6,
 #background-7,
-#boss {
+#boss,
+#hit,
+#shot,
+#heal,
+#thunder,
+#boom,
+#laser {
   display: none;
 }

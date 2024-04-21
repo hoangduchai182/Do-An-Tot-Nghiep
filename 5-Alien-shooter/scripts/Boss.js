@@ -67,6 +67,7 @@ export class Boss {
         this.lives >= 1 &&
         this.y >= 0
       ) {
+        this.game.sound.play(this.game.sound.hit);
         this.hit(1);
         projectile.reset();
       }
@@ -75,12 +76,14 @@ export class Boss {
     if (this.game.checkCollision(this, this.game.player) && this.lives >= 1) {
       this.game.gameOver = true;
       this.lives = 0;
+      this.game.sound.play(this.game.sound.boom);
     }
 
     // boss destroyed
     if (this.lives < 1 && this.game.spriteUpdate) {
       this.frameX++;
       if (this.frameX > this.maxFrame) {
+        this.game.sound.play(this.game.sound.thunder);
         this.markForDeletion = true;
         this.game.score += this.maxLives;
         this.game.bossLives += 5;

@@ -1,4 +1,4 @@
-import { Laser, SmallLaser, BigLaser } from './Laser.js';
+import { Laser, SmallLaser, BigLaser } from "./Laser.js";
 
 export class Player {
   constructor(game) {
@@ -12,8 +12,8 @@ export class Player {
     this.speed = 10;
     this.lives = 3;
     this.maxLives = 5;
-    this.image = document.getElementById('player');
-    this.jets_image = document.getElementById('player_jets');
+    this.image = document.getElementById("player");
+    this.jets_image = document.getElementById("player_jets");
     this.frameX = 0;
     this.jetsFrame = 1;
     this.smallLaser = new SmallLaser(this.game);
@@ -33,11 +33,11 @@ export class Player {
 
   draw(context) {
     // context.fillRect(this.x, this.y, this.width, this.height);
-    if (this.game.keys.indexOf('1') > -1) {
+    if (this.game.keys.indexOf("1") > -1) {
       this.frameX = 1;
-    } else if (this.game.keys.indexOf('2') > -1) {
+    } else if (this.game.keys.indexOf("2") > -1) {
       this.smallLaser.render(context);
-    } else if (this.game.keys.indexOf('3') > -1) {
+    } else if (this.game.keys.indexOf("3") > -1) {
       this.bigLaser.render(context);
     } else {
       this.frameX = 0;

@@ -6,24 +6,10 @@ body {
   position: relative;
   max-width: 360px;
 }
-/* #board {
-  background-image: url('./BackGround.png');
-} */
 
 #background {
   display: none;
 }
-
-/* #score {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  font-family: sans-serif;
-  font-weight: 500;
-  color: #fff;
-  font-size: 45px;
-} */
 
 #gameover {
   position: absolute;
@@ -34,4 +20,11 @@ body {
   font-weight: 900;
   color: red;
   font-size: 45px;
+}
+
+#flap,
+#music,
+#die,
+#point {
+  display: none;
 }

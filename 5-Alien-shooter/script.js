@@ -5,6 +5,7 @@ import { Enemy, Rhinomorph, Beetlemorph } from "./scripts/Enemy.js";
 import { Boss } from "./scripts/Boss.js";
 import { Wave } from "./scripts/Wave.js";
 import { Player } from "./scripts/Player.js";
+import { Sound } from "./scripts/sound.js";
 
 export class Game {
   constructor(canvas) {
@@ -44,6 +45,8 @@ export class Game {
       y: this.height * 0.5,
     };
 
+    this.sound = new Sound();
+
     this.gameStart = false;
 
     canvas.addEventListener("mousedown", (e) => {
@@ -62,14 +65,21 @@ export class Game {
     //this.player.shoot();
     window.addEventListener("keydown", (e) => {
       if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
-      if (e.key === "1" && !this.fired) this.player.shoot();
-      this.fired = true;
+      if (e.key === "1" && !this.fired) {
+        this.player.shoot();
+        this.fired = true;
+        this.sound.play(this.sound.shot);
+      }
+      if (e.key === "2" || e.key === "3") {
+        this.sound.play(this.sound.laser);
+      }
       if (e.key === "r" && this.gameOver) this.restart();
     });
     window.addEventListener("mousedown", (e) => {
       if (e.button === 0 && !this.fired) {
         // Nút chuột trái
         this.player.shoot();
+        this.sound.play(this.sound.shot);
       }
     });
     window.addEventListener("keyup", (e) => {
@@ -110,6 +120,7 @@ export class Game {
       wave.render(context);
       if (wave.enemies.length < 1 && !wave.nextWaveTrigger && !this.gameOver) {
         this.newWave();
+        this.sound.play(this.sound.heal);
         wave.nextWaveTrigger = true;
       }
     });

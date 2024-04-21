@@ -126,12 +126,14 @@ export class Player {
           this.currenState === this.states[5]
         ) {
           this.game.score++;
+          this.game.sound.play(this.game.sound.hit);
           this.game.floatingMessage.push(
             new FloatingMessage("+1", enemy.x, enemy.y, 150, 100)
           );
         } else {
           this.setState(6, 0);
           this.game.score -= 5;
+          this.game.sound.play(this.game.sound.damge);
           this.game.lives--;
           if (this.game.lives <= 0) {
             this.game.gameOver = true;

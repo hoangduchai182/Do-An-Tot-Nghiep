@@ -66,7 +66,22 @@ window.addEventListener("load", function () {
       }
     }
   }
+  class AudioControl {
+    constructor() {
+      this.flap = document.getElementById("flap");
+      this.music = document.getElementById("music");
+      this.die = document.getElementById("die");
+      this.point = document.getElementById("point");
+    }
+
+    play(sound) {
+      sound.currentTime = 0;
+      sound.play();
+    }
+  }
+
   let background = new Background();
+  let sound = new AudioControl();
 
   //background
 
@@ -96,6 +111,7 @@ window.addEventListener("load", function () {
         gameStarted = true; // Đánh dấu rằng trò chơi đã bắt đầu
         requestAnimationFrame(update); // Bắt đầu vòng lặp requestAnimationFrame
         setInterval(placePipes, 1500); //Mỗi 1.5 giây
+        sound.play(sound.music);
       }
     });
   }
@@ -106,6 +122,7 @@ window.addEventListener("load", function () {
     if (e.button === 0) {
       // Nút chuột trái
       velocityY = -6;
+      sound.play(sound.flap);
     }
     resetGame();
   });
@@ -140,9 +157,11 @@ window.addEventListener("load", function () {
       if (!pipe.passed && bird.x > pipe.x + pipe.width) {
         score += 0.5;
         pipe.passed = true;
+        sound.play(sound.point);
       }
 
       if (VaCham(bird, pipe)) {
+        sound.play(sound.die);
         gameOver = true;
       }
     }
@@ -157,6 +176,7 @@ window.addEventListener("load", function () {
     context.restore();
 
     if (gameOver) {
+      sound.music.pause();
       context.save();
       context.font = "bold 50px Serif";
       context.fillStyle = "red";
@@ -176,9 +196,7 @@ window.addEventListener("load", function () {
     if (gameOver) {
       return;
     }
-    //(0-1) * pipeHeight / 2
-    // 0 -> -128(pipeHeight / 4)
-    // 1 -> -128 -256 (pipeHeight / 4 - pipeHeight / 2) = -3/4 pipeHeight
+
     let randomPipeY = pipeY - pipeHeight / 4 - Math.random() * (pipeHeight / 2);
     let openingSpace = canvas.height / 4;
 
@@ -217,6 +235,7 @@ window.addEventListener("load", function () {
       pipeArray = [];
       score = 0;
       gameOver = false;
+      sound.play(sound.music);
     }
   }
 

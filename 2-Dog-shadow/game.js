@@ -1,12 +1,13 @@
-import { Player } from './player.js';
-import { InputHandler } from './input.js';
-import { Background } from './background.js';
-import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from './enemies.js';
-import { UI } from './UI.js';
+import { Player } from "./player.js";
+import { InputHandler } from "./input.js";
+import { Background } from "./background.js";
+import { FlyingEnemy, GroundEnemy, ClimbingEnemy } from "./enemies.js";
+import { UI } from "./UI.js";
+import { Sound } from "../2-Dog-shadow/sound.js";
 
-window.addEventListener('load', function () {
-  const canvas = document.getElementById('canvas1');
-  const ctx = canvas.getContext('2d');
+window.addEventListener("load", function () {
+  const canvas = document.getElementById("canvas1");
+  const ctx = canvas.getContext("2d");
   canvas.width = 900;
   canvas.height = 500;
 
@@ -31,13 +32,15 @@ window.addEventListener('load', function () {
       this.debug = false;
       this.score = 0;
       this.winningScore = 100;
-      this.fontColor = 'black';
+      this.fontColor = "black";
       this.time = 0;
       this.maxTime = 100000;
       this.gameOver = false;
       this.lives = 5;
       this.player.currenState = this.player.states[0];
       this.player.currenState.enter();
+
+      this.sound = new Sound();
 
       this.gameStarted = false;
     }
@@ -54,11 +57,11 @@ window.addEventListener('load', function () {
       } else {
         this.enemyTimer += deltaTime;
       }
-      this.enemies.forEach(enemy => {
+      this.enemies.forEach((enemy) => {
         enemy.update(deltaTime);
       });
 
-      this.floatingMessage.forEach(message => {
+      this.floatingMessage.forEach((message) => {
         message.update();
       });
 
@@ -74,31 +77,31 @@ window.addEventListener('load', function () {
         collision.update(deltaTime);
       });
 
-      this.enemies = this.enemies.filter(ennemy => !ennemy.markForDeletion);
+      this.enemies = this.enemies.filter((ennemy) => !ennemy.markForDeletion);
       this.collisions = this.collisions.filter(
-        collision => !collision.markForDeletion
+        (collision) => !collision.markForDeletion
       );
       this.particles = this.particles.filter(
-        particle => !particle.markForDeletion
+        (particle) => !particle.markForDeletion
       );
       this.floatingMessage = this.floatingMessage.filter(
-        message => !message.markForDeletion
+        (message) => !message.markForDeletion
       );
     }
 
     draw(context) {
       this.Background.draw(context);
       this.player.draw(context);
-      this.enemies.forEach(enemy => {
+      this.enemies.forEach((enemy) => {
         enemy.draw(context);
       });
-      this.particles.forEach(particle => {
+      this.particles.forEach((particle) => {
         particle.draw(context);
       });
-      this.collisions.forEach(collision => {
+      this.collisions.forEach((collision) => {
         collision.draw(context);
       });
-      this.floatingMessage.forEach(message => {
+      this.floatingMessage.forEach((message) => {
         message.draw(context);
       });
       this.UI.draw(context);
@@ -144,6 +147,7 @@ window.addEventListener('load', function () {
     const mousedownListener = function (e) {
       if (e.button === 0) {
         game.gameStarted = true;
+        game.sound.play(game.sound.start);
 
         // Khởi tạo vòng lặp game và đặt lastTime thành thời gian bắt đầu game
         let lastTime = performance.now() - startTime;
@@ -164,22 +168,20 @@ window.addEventListener('load', function () {
           }
 
           const restartListener = function (e) {
-            if (game.gameOver && e.key == 'r') {
+            if (game.gameOver && e.key == "r") {
               game.restart();
-
+              game.sound.play(game.sound.start);
               requestAnimationFrame(animate); // Gọi animate một lần duy nhất sau khi restart
 
-              window.removeEventListener('keydown', restartListener); // Bỏ gán sự kiện sau khi restart
+              window.removeEventListener("keydown", restartListener); // Bỏ gán sự kiện sau khi restart
             }
           };
-          window.addEventListener('keydown', restartListener);
+          window.addEventListener("keydown", restartListener);
         }
         animate();
-        document.removeEventListener('mousedown', mousedownListener);
+        document.removeEventListener("mousedown", mousedownListener);
       }
     };
-    document.addEventListener('mousedown', mousedownListener);
+    document.addEventListener("mousedown", mousedownListener);
   }
-
-  
 });

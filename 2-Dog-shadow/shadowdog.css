@@ -10,7 +10,7 @@
   max-height: 100%;
   margin-top: 5px;
   margin-bottom: 100px;
-  font-family: 'Creepster', system-ui;
+  font-family: "Creepster", system-ui;
 }
 
 #player,
@@ -24,6 +24,10 @@
 #enemy_spider_big,
 #fire,
 #collisionAnimation,
-#lives {
+#lives,
+#hit,
+#damge,
+#jump,
+#start {
   display: none;
 }
